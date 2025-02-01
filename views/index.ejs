@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./output.css" />
+  </head>
+  <body class="">
+    <nav class="bg-blue-500 justify-items-center py-4 m-2 rounded text-3xl">
+      <p>weather app</p>
+    </nav>
+
+      <div class="justify-items-center text-2xl">
+        <h2 >Enter longitude and latitude of any location below to get a weather report for that locaton</h2>
+      </div>
+   
+    <div class="grid grid-cols-2 gap-2 p-2">
+      <% if (locals.content) { %> <% content.forEach(function(location) { %>
+      <div class="bg-gray-400 rounded">
+        <p class="p-2">Location is <%= location.name %></p>
+        <p class="p-2">Weather description is <%= location.weather[0].description %></p>
+        <p class="p-2">Kelvin temperature is <%= location.main.temp %></p>
+        <p class="p-2">Celsius Temperature is <%= location.cTemp %></p>
+      </div>
+      <% }); %> <% } %>
+    </div>
+
+    <div class="max-w-sm mx-auto flex h-screen">
+      <form
+        action="/submit"
+        method="post"
+        class="bg-yellow-200 p-6 rounded-xl flex flex-col flex-1 min-h-1/4 max-h-1/2 my-auto"
+      >
+        <div class="flex mb-4">
+          <label for="name" class="mr-10 w-20 text-2xl">Name</label>
+          <input type="text" id="name" class="flex-1 pl-2 bg-white rounded" />
+        </div>
+        <div class="flex mb-4">
+          <label for="long" class="mr-10 w-20 text-2xl">Longitude</label>
+          <input
+            type="text"
+            id="long"
+            name="long"
+            class="flex-1 pl-2 bg-white rounded"
+          />
+        </div>
+        <div class="flex mb-4">
+          <label for="lat" class="mr-10 w-20 text-2xl">Latitude</label>
+          <input
+            type="text"
+            id="lat"
+            name="lat"
+            class="flex-1 pl-2 bg-white rounded"
+          />
+        </div>
+
+        <div class="mx-auto">
+          <input type="submit" class="bg-green-300 p-2 rounded mx-auto" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
