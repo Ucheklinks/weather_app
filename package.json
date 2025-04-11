@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "build-tailwind-css": "npx @tailwindcss/cli -i ./public/styles.css -o ./public/output.css --watch",
-    "dev": "nodemon index.js"
-
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
